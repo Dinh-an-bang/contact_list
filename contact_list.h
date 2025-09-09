@@ -27,11 +27,11 @@ class contact_list {
 			
 			// cac ham getter de lay gia tri tu private cua class
 			// vai tro chinh la doc chu khong duoc quyen thay doi
-			void getName() const;
-			void getPhone() const;
-			void getEmail() const;
-			void getAddress() const;
-			void getImage() const;
+			string getName() const;
+			string getPhone() const;
+			string getEmail() const;
+			string getAddress() const;
+			string getImage() const;
 			
 			// cac ham setter dung de gan gia tri cho cac bien thuoc tinh private
 			void setName(const string &name);
@@ -48,7 +48,7 @@ class contact_list {
 			void inputImage();
 			
 			// ham input tong tat ca
-			void input;
+			void input();
 			
 			// ham display thong tin
 			void display() const;

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 #include <regex>
-#include "contact_lish"
+#include "contact_list.h"
 
 using namespace std;
 
@@ -30,13 +30,14 @@ bool contact_list::is_valid_word(const string &s) const{
 //bool is_valid_address(const string &s) const;
 bool contact_list::is_valid_address(const string &s) const{
    // check dia chi muon luu bang cac ki tu dac biet so va word
-   return regex_match(s, regex("^[a-zA-Z0-9 ,.\\#]{2,500}$"));
+   return regex_match(s, regex("^.{2,500}$"));
 }
 
 //bool is_valid_image(const string &s) const;
 bool contact_list::is_valid_image(const string &s) const {
 	// regex.icase hoa thuong gi cung giong nhau
-    return regex_match(s, regex("^(https?://).+\\.(jpg|jpeg|png|gif|bmp)$", regex::icase));
+	// cho chap nhan moi duoi anh luon
+    return regex_match(s, regex("^(https?://).+$", regex::icase));
 }
 
 // contact_list(string name ="", string phone ="", string email ="", string address ="", string image ="");
@@ -165,7 +166,7 @@ void contact_list::inputAddress(){
 	
 	while(true){
 		
-		cout << "\nInput your address(valid address invols: number + characters in your hometown): ";
+		cout << "\nInput your address(valid address invols: number + special characters + name in your hometown): ";
 		getline(cin, address);
 		
 		if(is_valid_address(address) == true){
@@ -217,7 +218,7 @@ void contact_list::display() const{
     cout << "\n| Email: " << getEmail();
     cout << "\n| Address: " << getAddress();
     cout << "\n| Link_image: " << getImage();
-    cout << "\n|-----------------------------------------------------+\n";
+    cout << "\n+-----------------------------------------------------+\n";
 }
 
 
