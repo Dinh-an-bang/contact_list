@@ -9,7 +9,7 @@ using namespace std;
 
 // bool is_valid_phone(const string &s) const;
 // ham kiem tra so dien thoai hop le
-bool contac_list::is_valid_phone(const string &s) const{
+bool contact_list::is_valid_phone(const string &s) const{
 	// 0123456789 or etc....
     return regex_match(s, regex("^[0-9]{9,11}$"));
 }
@@ -54,7 +54,7 @@ string contact_list::getName() const{
 	return name;
 }
 
-string contac_list::getPhone() const{
+string contact_list::getPhone() const{
     return phone;
 }
 
@@ -62,11 +62,11 @@ string contact_list::getEmail() const{
 	return email;
 }
 
-string contac_list::getAddress() const{
+string contact_list::getAddress() const{
     return address;
 }
 
-string contac_list::getImage() const{
+string contact_list::getImage() const{
     return image;
 }
 
@@ -194,9 +194,31 @@ void contact_list::inputImage(){
 	}
 }
 
+// ham input tong tat ca
+void contact_list::input(){
+	inputName();
+	cout << "\n";
+	inputPhone();
+	cout << "\n";
+	inputEmail();
+	cout << "\n";
+	inputAddress();
+	cout << "\n";
+	inputImage();
+}
 
 
-
+// ham display thong tin
+void contact_list::display() const{
+    
+    cout << "\n+--------------------CONTACT LIST--------------------+";
+    cout << "\n| Name: " << getName();
+    cout << "\n| Phone number: " << getPhone();
+    cout << "\n| Email: " << getEmail();
+    cout << "\n| Address: " << getAddress();
+    cout << "\n| Link_image: " << getImage();
+    cout << "\n|-----------------------------------------------------+\n";
+}
 
 
 
